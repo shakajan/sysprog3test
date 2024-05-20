@@ -189,7 +189,7 @@ int main(void) {
   for (int i = 1; i < strlen(s91); i++) {
     int neg = -i;
     int fskrslt = fseek(fp91, neg, SEEK_END);
-    int i92 = fread(b91, 1, 70, fp91);
+    int i92 = fread(b91, 1, strlen(s91), fp91);
     b91[i92] = '\0';
     assert(strcmp(b91, &s91[strlen(s91) - i]) == 0);
   }
