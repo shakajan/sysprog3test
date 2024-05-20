@@ -218,9 +218,12 @@ int main(void) {
   int i115 = fflush(fp111);
   assert(i115 != EOF);
 
+  fseek(fp112, 0, SEEK_SET);
   char b112[30] = {0};
   int i116 = fread(b112, 1, 30, fp112);
-  assert(i116 == i114 + i112);
+  assert(i111 == strlen(s111));
+  assert(i114 == strlen(s112));
+  assert(i116 == i114 + i111);
 
   fclose(fp111);
   fclose(fp112);
