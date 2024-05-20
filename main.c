@@ -216,7 +216,7 @@ int main(void) {
   
   int i114 = fwrite(s112, 1, strlen(s112), fp111);
   int i115 = fflush(fp111);
-  assert(i112 != EOF);
+  assert(i115 != EOF);
 
   char b112[30] = {0};
   int i116 = fread(b112, 1, 30, fp112);
