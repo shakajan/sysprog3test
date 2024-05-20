@@ -200,6 +200,30 @@ int main(void) {
   FILE* fp101 = fopen("non-exist", "r");
   assert(fp101 == NULL);
 
+  dbg("\ntest 11:: fflush test: fwrite -> fflush -> assert\n");
+  FILE* fp111 = fopen("test111", "w+");
+  const char* s111 = "first write";
+  const char* s112 = "second write";
+
+  int i111 = fwrite(s111, 1, strlen(s111), fp111);
+  int i112 = fflush(fp111);
+  assert(i112 != EOF);
+
+  FILE* fp112 = fopen("test111", "r");
+  char b111[30] = {0};
+  int i113 = fread(b111, 1, 30, fp112);
+  assert(i113 == i111);
+  
+  int i114 = fwrite(s112, 1, strlen(s112), fp111);
+  int i115 = fflush(fp111);
+  assert(i112 != EOF);
+
+  char b112[30] = {0};
+  int i116 = fread(b112, 1, 30, fp112);
+  assert(i116 == i114 + i112);
+
+  fclose(fp111);
+  fclose(fp112);
 
   return 0;
 }
