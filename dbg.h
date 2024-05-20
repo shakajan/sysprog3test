@@ -47,7 +47,7 @@ void PrintInt(int a) {
   dbg(ptr);
   free(ptr);
 }
-
+/*
 void dbgstream(FILE *file) {
   dbg("\n::stream dbg start::\n");
   dbg("file descriptor:: ");
@@ -89,3 +89,4 @@ void dbgstream(FILE *file) {
   PrintInt(file->buf_len);
   dbg("\n\n::stream dbg end::\n\n");
 }
+*/
