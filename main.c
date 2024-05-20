@@ -196,5 +196,10 @@ int main(void) {
   fclose(fp91);
   free(b91);
 
+  dbg("\ntest 10:: fopen test: try to read non-exist file.\n");
+  FILE* fp101 = fopen("non-exist", "r");
+  assert(fp101 == NULL);
+
+
   return 0;
 }
