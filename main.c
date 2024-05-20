@@ -1,14 +1,5 @@
 #include "dbg.h"
 
-// the result of this test is equal to the result with using stdio.h header
-// file.
-
-// HOW__TO__USE
-// open "dbg.h" and add a new line with {#include "mystdio.h"} on the top of the
-// file. and compile with makefile, input command "make", included a compile
-// option with {-fno-builtin}. then execute the test program: input command
-// "./test"
-
 int main(void) {
 
   dbg("\ntest 1:: fread(1) -> fseek(1, SEEK_CUR) loop test\n");
