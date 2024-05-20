@@ -8,3 +8,7 @@
 - 명세되지 않는 부분은 되도록 빼려고 했는데
 - 명세랑 다르게 assert를 수행한다고 생각되신다면 알려주시면 감사하겠습니다..
 - email: 255theend@gmail.com
+
+## TEST ENVIRONMENT
+- replit (UBUNTU 20.04.2 LTS, bash, gcc 11.3.0)
+- mac (Sonoma 14.4.1, zsh, clang 15.0.0)
