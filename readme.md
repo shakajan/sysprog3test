@@ -14,6 +14,8 @@
 ## NOTICE
 - 명세되지 않는 부분은 되도록 빼려고 했는데
 - 명세랑 다르게 assert를 수행한다고 생각되신다면 알려주시면 감사하겠습니다..
+- OS에서 제공하는 feof의 리턴값이 명세와 달라
+- 이에 관련된 검증문은 `test_std` 파일에서 제외하였습니다.
 - email: 255theend@gmail.com
 
 ## TEST ENVIRONMENT
