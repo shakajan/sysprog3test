@@ -13,6 +13,7 @@ $(TARGET): $(SRC)
 
 $(SRC): main.c
 	echo '#include "dbg.h"' > test_custom.c
+	echo 'const char* TYPE = "custom";' >> test_custom.c
 	cat main.c >> test_custom.c
 
 create_test11:
@@ -25,5 +26,6 @@ clean:
 # create test file refences real standard header file.
 std: create_test11
 	echo '#include "mirrordbg.h"' > test_std.c
+	echo 'const char* TYPE = "standard";' >> test_std.c
 	cat main.c >> test_std.c
 	gcc -o test_std test_std.c

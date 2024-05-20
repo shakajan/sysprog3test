@@ -21,6 +21,16 @@ int main(void) {
     int write_size = fwrite(s21, 1, 5, fp21);
     assert(write_size == strlen("HELLO"));
   }
+  fflush(fp21);
+  char b21[200] = {0};
+  fseek(fp21, 0, SEEK_SET);
+  int i21 = fread(b21, 1, 151, fp21);
+  assert(i21 == 150);
+  
+  if(strcmp(TYPE, "custom") == 0) {
+      assert(feof(fp21) == EOF);
+  }
+
   fclose(fp21);
 
   dbg("\ntest 3:: write strings at random position, after then, read that "
@@ -134,9 +144,25 @@ int main(void) {
   dbg("\ntest 7:: append+ mode test.\n");
   FILE *fp71 = fopen("test61", "a+");
   char b71[20] = {0};
+  int i72 = fread(b71, 1, 1, fp71);
+  
+  if(strcmp(TYPE, "custom") == 0) {
+      assert(feof(fp71) == EOF);
+  }
+  
+
   fseek(fp71, 0, SEEK_SET);
   int i71 = fread(b71, 1, 10, fp71);
   assert(i71 == 10);
+
+  int i73 = fwrite("new_word", 1, strlen("new_word"), fp71);
+  fflush(fp71);
+  fseek(fp71, -strlen("new_word"), SEEK_END);
+  char b72[10] = {0};
+  int i74 = fread(b72, 1, 10, fp71);
+  assert(i74 == strlen("new_word"));
+  assert(strcmp("new_word", b72) == 0);
+
 
   fclose(fp71);
 
@@ -219,13 +245,20 @@ int main(void) {
   fclose(fp111);
   fclose(fp112);
 
-  dbg("\ntest 12:: if nothing to read, fread() is 0.\n");
+  dbg("\ntest 12:: if nothing to read, fread() is 0, and feof() is EOF.\n");
   FILE* fp121 = fopen("test111", "r");
   char b121[100] = {0};
   int i121 = fread(b121, 1, 99, fp121);
   int i122 = fread(b121, 1, 1, fp121);
   assert(i122 == 0);
+  if(strcmp(TYPE, "custom") == 0) {
+      assert(feof(fp121) == EOF);
+  }
+
+
+
   fclose(fp121);
+  
 
   return 0;
 }
