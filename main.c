@@ -19,6 +19,7 @@ int main(void) {
   const char *s21 = "HELLO";
   for (int i = 0; i < 30; i++) {
     int write_size = fwrite(s21, 1, 5, fp21);
+    assert(write_size == strlen("HELLO"));
   }
   fclose(fp21);
 
@@ -217,6 +218,14 @@ int main(void) {
 
   fclose(fp111);
   fclose(fp112);
+
+  dbg("\ntest 12:: if nothing to read, fread() is 0.\n");
+  FILE* fp121 = fopen("test111", "r");
+  char b121[100] = {0};
+  int i121 = fread(b121, 1, 99, fp121);
+  int i122 = fread(b121, 1, 1, fp121);
+  assert(i122 == 0);
+  fclose(fp121);
 
   return 0;
 }
