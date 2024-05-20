@@ -9,7 +9,7 @@
 1. 프롬프트에서 `make std` 입력.
 2. 프롬프트에서 `./test_std` 입력.
 3. 결과 감상.
-`./test_std` 결과 assertion fail이 발생한다면 꼭 메일로 연락 주시기 바랍니다..ㅠ
+- `./test_std` 결과 assertion fail이 발생한다면 꼭 메일로 연락 주시기 바랍니다..ㅠ
 
 ## NOTICE
 - 명세되지 않는 부분은 되도록 빼려고 했는데
